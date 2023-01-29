@@ -1,26 +1,28 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+	<Nav-Component/>
 </template>
 
-<script>
-import HelloWorld from './components/HelloWorld.vue'
+<script lang="ts">
 
+import NavComponent from "@/components/Nav-component.vue"
 export default {
-  name: 'App',
-  components: {
-    HelloWorld
-  }
+	name: "App",
+	components: { NavComponent },
 }
 </script>
 
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
+
+nav a {
+  font-weight: bold;
   color: #2c3e50;
-  margin-top: 60px;
+  text-decoration: none;
+  font-size: 20px;
+  font-family: sans-serif;
+  letter-spacing: .1px;
+}
+
+nav a.router-link-exact-active {
+  color: #42b983;
 }
 </style>
