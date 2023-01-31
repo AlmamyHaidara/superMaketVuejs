@@ -1,8 +1,8 @@
 <template>
-<!--	<carousel :slides="slides" :interval="3000" controls indicators></carousel>-->
-	<slider class="content "/>
-	<Contenaire-Component class="mt-5 float-start table-responsive"/>
-	<ContactComponent class="contact mx-auto"></ContactComponent>
+  <!--	<carousel :slides="slides" :interval="3000" controls indicators></carousel>-->
+  <slider class="content" />
+  <Contenaire-Component class="mt-5 float-start table-responsive" />
+  <ContactComponent class="contact mx-auto"></ContactComponent>
 </template>
 <script lang="js">
 import Carousel from "@/components/carousels/Carousel.vue";
@@ -26,11 +26,11 @@ export default {
 }
 </script>
 <style scoped>
-.content{
-	position: relative;
-	top: 3.5rem;
+.content {
+  position: relative;
+  top: 3.5rem;
 }
-.contact{
-	margin-top: 40rem;
+.contact {
+  margin-top: 40rem;
 }
 </style>

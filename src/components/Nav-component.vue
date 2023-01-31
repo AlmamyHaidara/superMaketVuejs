@@ -1,40 +1,39 @@
 <template>
 	<!--	<nav class="float-start">
-			<ul>
-		  <span class="span1 mt-2">
-			<img src="../assets/Images/logo.png" alt width="100" height="50"/>
-		  </span>
-				<span class="span2 mt-3">
-	<li>
-	  <router-link to="/home">Acceuil</router-link>
-	</li>
-	<li>
-	  <router-link to="/contact">Contact</router-link>
-	</li>
-	<li>
-	  <router-link to="/produit">Produit</router-link>
-	</li>
-	<li>
-	  <router-link to="/about">Autre</router-link>
-	</li>
-	</span>
-				<span class="span3 float-md-start">
-					<li>
-					  <router-link to="/connection">
-						  <button type="button" class=" btn connect mt-2">Connection</button>
-					  </router-link>
-					</li>
+			  <ul>
+			<span class="span1 mt-2">
+			  <img src="../assets/Images/logo.png" alt width="100" height="50"/>
+			</span>
+				  <span class="span2 mt-3">
+	  <li>
+		<router-link to="/home">Acceuil</router-link>
+	  </li>
+	  <li>
+		<router-link to="/contact">Contact</router-link>
+	  </li>
+	  <li>
+		<router-link to="/produit">Produit</router-link>
+	  </li>
+	  <li>
+		<router-link to="/about">Autre</router-link>
+	  </li>
+	  </span>
+				  <span class="span3 float-md-start">
+					  <li>
+						<router-link to="/connection">
+							<button type="button" class=" btn connect mt-2">Connection</button>
+						</router-link>
+					  </li>
 
-					<li>
-					  <router-link to="/inscribtion">
-						  <button type="button" class=" btn inscribe mt-2">Inscription</button>
-					  </router-link>
-					</li>
-				</span>
-			</ul>
-			<router-view/>
-		</nav>-->
-
+					  <li>
+						<router-link to="/inscribtion">
+							<button type="button" class=" btn inscribe mt-2">Inscription</button>
+						</router-link>
+					  </li>
+				  </span>
+			  </ul>
+			  <router-view/>
+		  </nav>-->
 
 	<!-- Navbar -->
 	<nav class="navbar navbar-expand-lg navbar-light bg-light">
@@ -88,73 +87,56 @@
 			<!-- Collapsible wrapper -->
 
 			<!-- Right elements -->
-			<div class="d-flex align-items-center">
+			<div class="d-flex align-items-center me-5">
 				<!-- Icon -->
 				<a class="text-reset me-3" href="#">
 					<i class="fas fa-shopping-cart"></i>
 				</a>
-
-				<!-- Notifications -->
-				<div class="dropdown">
-					<a
-						class="text-reset me-3 dropdown-toggle hidden-arrow"
-						href="#"
-						id="navbarDropdownMenuLink"
-						role="button"
-						data-mdb-toggle="dropdown"
-						aria-expanded="false"
-					>
-						<i class="fas fa-bell"></i>
-						<span class="badge rounded-pill badge-notification bg-danger">1</span>
-					</a>
-					<!--					<ul
-											class="dropdown-menu dropdown-menu-end"
-											aria-labelledby="navbarDropdownMenuLink"
-										>
-											<li>
-												<a class="dropdown-item" href="#">Some news</a>
-											</li>
-											<li>
-												<a class="dropdown-item" href="#">Another news</a>
-											</li>
-											<li>
-												<a class="dropdown-item" href="#">Something else here</a>
-											</li>
-										</ul>-->
+				<div class="d-flex align-items-center">
+					<router-link to="/connection">
+						<button type="button" class="btn btn-light px-3 me-2" data-mdb-ripple-color="dark">Login
+						</button>
+					</router-link>
+					<router-link to="/inscribtion">
+						<button type="button" class="btn btn-primary me-3 inscribe">
+							Inscription
+						</button>
+					</router-link>
 				</div>
 				<!-- Avatar -->
-				<div class="dropdown">
-					<a
-						class="dropdown-toggle d-flex align-items-center hidden-arrow"
-						href="#"
-						id="navbarDropdownMenuAvatar"
-						role="button"
-						data-mdb-toggle="dropdown"
-						aria-expanded="false"
-					>
-						<img
-							src="https://mdbcdn.b-cdn.net/img/new/avatars/2.webp"
-							class="rounded-circle"
-							height="25"
-							alt="Black and White Portrait of a Man"
-							loading="lazy"
-						/>
-					</a>
-					<!--					<ul
-											class="dropdown-menu dropdown-menu-end"
-											aria-labelledby="navbarDropdownMenuAvatar"
-										>
-											<li>
-												<a class="dropdown-item" href="#">My profile</a>
-											</li>
-											<li>
-												<a class="dropdown-item" href="#">Settings</a>
-											</li>
-											<li>
-												<a class="dropdown-item" href="#">Logout</a>
-											</li>
-										</ul>-->
-				</div>
+				<!--				<div class="dropdown">
+									<a
+										class="dropdown-toggle d-flex align-items-center hidden-arrow"
+										href="#"
+										id="navbarDropdownMenuAvatar"
+										role="button"
+										data-mdb-toggle="dropdown"
+										aria-expanded="false"
+									>
+										<img
+											src="https://mdbcdn.b-cdn.net/img/new/avatars/2.webp"
+											class="rounded-circle"
+											height="25"
+											alt="Black and White Portrait of a Man"
+											loading="lazy"
+										/>
+									</a>
+									<ul
+										class="dropdown-menu dropdown-menu-end "
+										aria-labelledby="navbarDropdownMenuAvatar"
+										style="flex-direction: column;"
+									>
+										<li>
+											<a class="dropdown-item" href="#">My profile</a>
+										</li>
+										<li>
+											<a class="dropdown-item" href="#">Settings</a>
+										</li>
+										<li>
+											<a class="dropdown-item" href="#">Logout</a>
+										</li>
+									</ul>
+								</div>-->
 			</div>
 			<!-- Right elements -->
 		</div>
@@ -162,13 +144,16 @@
 	</nav>
 	<!-- Navbar -->
 	<router-view/>
-
 </template>
 
-<script setup>
-</script>
+<script setup></script>
+
 
 <style scoped>
+.align-items-center {
+	margin-right: 2rem;
+}
+
 li {
 	list-style: none;
 }
@@ -188,72 +173,27 @@ nav ul {
 	justify-content: space-between;
 }
 
-.span2 {
-	display: flex;
-	margin-left: 10rem
-}
 
 .span2 li {
 	padding: 10px 30px;
 }
 
-.span3 {
-	display: flex;
-	margin-right: 5rem;
-}
 
-.connect, .inscribe {
-	border: 0;
-	width: 8rem;
-	height: 2.5rem;
-	margin-top: -1rem;
-	border-radius: 5px;
-	background: #50a8c5;
-	font-weight: bold;
-	color: #f3f3f3;
-	box-shadow: 0px 0px 24px -12px #444444;
 
-}
 
 .inscribe {
-	border: 2px solid #50a8c5;
-	background: transparent;
-	color: #50a8c5;
-}
-
-.connect:hover {
-	border: 1px solid #50a8c5;
-	background: transparent;
-	color: #50a8c5;
-	transition: .8s;
-
-}
-
-.inscribe:hover {
-	border: 0;
 	background: #50a8c5;
-	color: #fff;
-	transition: .8s;
+	border: #50a8c5;
 }
+
 
 .span3 li {
 	padding: 10px 15px;
 }
 
-@media (max-width: 926px) {
-	.span2 {
-		margin-left: 1rem;
-	}
-
-	.connect, .inscribe {
-		margin-left: 2rem;
-	}
-}
 
 @media (max-width: 1157px) {
-	.span2 {
-		margin-left: 1.5rem;
-	}
+
 
 	.span2 li {
 		padding: 10px 20px;
@@ -261,25 +201,11 @@ nav ul {
 	}
 
 	.span2 li a {
-		/*padding: 10px -8px;*/
 		font-size: 15px;
 	}
 
-	.span3 {
-		margin-left: 1.5rem;
-	}
-
-	.connect, .inscribe {
-		width: 6rem;
-		height: 2.5rem;
-		font-size: 14px;
-	}
 }
-
 @media (max-width: 800px) {
-	.span2 {
-		margin-left: 1.5rem;
-	}
 
 	.span2 li {
 		padding: 10px 20px;
@@ -287,23 +213,7 @@ nav ul {
 	}
 
 	.span2 li a {
-		/*padding: 10px -8px;*/
 		font-size: 15px;
-	}
-
-	.span3 {
-		margin-left: -1rem;
-	}
-
-	.connect, .inscribe {
-		width: 6rem;
-		height: 2.5rem;
-		font-size: 14px;
-		margin-left: 1rem;
-	}
-
-	.inscribe {
-		margin-left: -1rem
 	}
 }
 </style>

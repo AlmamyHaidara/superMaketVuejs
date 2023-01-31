@@ -6,43 +6,74 @@
 		<div class="input_form">
 			<div class="div1 mt-0">
 				<label>Firstname <span>*</span></label>
-				<input class="form-control" type="text" placeholder="Default input" aria-label="default input example" id="firstname">
+				<input
+					class="form-control"
+					type="text"
+					placeholder="Firstname"
+					id="firstname"
+				/>
 			</div>
 			<div class="div2 mt-0">
 				<label>Lastname <span>*</span></label>
-				<input class="form-control" type="text" placeholder="Default input" aria-label="default input example" id="lastname">
+				<input
+					class="form-control"
+					type="text"
+					placeholder="Lastname"
+					id="lastname"
+				/>
 			</div>
-			<div style="display: flex;flex-direction: column">
+			<div style="display: flex; flex-direction: column">
 				<div class="div3 mt-0">
 					<label>Email <span>*</span></label>
-					<input type="email" class="form-control" id="exampleFormControlInput1 email" placeholder="name@example.com">
+					<input
+						type="email"
+						class="form-control email"
+						id="exampleFormControlInput1 email"
+						placeholder="name@example.com"
+					/>
 				</div>
 				<div class="div4 mt-0">
 					<label>Contact Number <span>*</span></label>
-					<input class="form-control" type="text" placeholder="Default input" aria-label="default input example" id="contact">
+					<input
+						class="form-control"
+						type="text"
+						placeholder="Default input"
+						aria-label="default input example"
+						id="contact"
+					/>
 				</div>
-
 			</div>
 			<div class="div5">
 				<label>Address <span>*</span></label>
-				<input class="form-control" type="text" placeholder="Default input" aria-label="default input example" id="address">
+				<input
+					class="form-control"
+					type="text"
+					placeholder="Default input"
+					aria-label="default input example"
+					id="address"
+				/>
 			</div>
 
 			<div class="div7 mt-0">
 				<label>Password <span>*</span></label>
-				<input type="password" class="form-control" id="inputPassword password">
+				<input
+					type="password"
+					class="form-control password"
+					id="inputPassword password"
+				/>
 			</div>
 		</div>
 		<div class="div8 mt-0">
-			<span class="span4">
-<!--				<button @click="user()">Save</button>-->
-				<input class="btn btn-primary" type="submit" value="Save" @click.prevent="user()" id="">
-			</span>
-			<span class="span5">
-<!--				<button>continue</button>-->
-				<input class="btn btn-primary" type="submit" value="Continue" @click.prevent="user()" id="">
-
-			</span>
+      <span class="span4">
+        <!--				<button @click="user()">Save</button>-->
+        <input
+			class="btn btn-primary btn-lg "
+			type="submit"
+			value="Save"
+			id="btn"
+			@click="user()"
+		/>
+      </span>
 		</div>
 	</div>
 </template>
@@ -59,47 +90,84 @@ export default {
 			lastname: "",
 			email: "",
 			contact: "",
-			state: "",
 			address: "",
 			password: "",
-			list_user: []
-		}
+			list_user: [],
+		};
 	},
 	methods: {
-		passwordtest() {
-			if(password.length <= 8){
-				aletrt("Password")
+		passwordtest(password) {
+
+				if (password.match(/[0-9]/g) &&
+					password.match(/[A-Z]/g) &&
+					password.match(/[a-z]/g) &&
+					password.match(/[^a-zA-Z\d]/g) &&
+					(password.split('')).length >= 8) {
+					console.log(true)
+				} else {
+					alert("Password");
+					return false
+				}
+
+		},
+		numbertest(number) {
+			if ((number.split("")).length < 8) {
+				alert("Veuillez remplire contentment le champ contact")
+				return false;
 			}
+			console.log(true);
 		},
 		emailtest(email) {
 			if (email.match(this.pattern)) {
 				console.log(true)
 			} else {
 				alert("please your email is notre correctly")
-				return false
+				return false;
 			}
 		},
 		user() {
-			this.firstname = document.getElementById('firstname').value,
-				this.lastname = document.getElementById('lastname').value,
-				this.email = document.getElementById('email').value,
-				this.contact = document.getElementById('contact').value,
-				this.state = document.getElementById('state').value,
-				this.address = document.getElementById('address').value,
-				this.password = document.getElementById('password').value
 
-			this.list_user = [this.firstname, this.lastname, this.email, this.contact, this.state, this.address, this.password]
+			this.firstname = document.querySelector("#firstname").value
+			console.log(this.firstname)
+			this.lastname = document.querySelector("#lastname").value
+			this.email = document.querySelector(".email").value
+			this.contact = document.querySelector("#contact").value
+			this.address = document.querySelector("#address").value
+			this.password = document.querySelector(".password").value
+			console.log(this.firstname,
+				this.lastname,
+				this.email,
+				this.contact,
+				this.address,
+				this.password,)
+			this.list_user = [
+				this.firstname,
+				this.lastname,
+				this.email,
+				this.contact,
+				this.address,
+				this.password,
+			];
 
+			if (
+				(this.firstname ||
+					this.lastname ||
+					this.email ||
+					this.contact ||
+					this.address ||
+					this.password) === ""
+			) {
 
-			if ((this.firstname && this.lastname && this.email && this.contact && this.address && this.password) === "") {
-				alert("please fill in the form correctly")
+				alert("please fill in the form correctly");
+				return false
 			} else {
-				this.emailtest(this.email)
+				this.numbertest(this.contact)
+				this.passwordtest(this.password)
+				this.emailtest(this.email);
 			}
-
-		}
-	}
-}
+		},
+	},
+};
 </script>
 
 <style scoped>
@@ -108,19 +176,18 @@ export default {
 	height: 5rem;
 	background: #50a8c5;
 	margin-left: 22.5%;
+	margin-top: 8rem;
 	border-top-right-radius: 5px;
 	border-top-left-radius: 5px;
-
 }
 
 h1 {
-	color: #F5F5F5;
+	color: #f5f5f5;
 	font-weight: bold;
 	font-size: 25px;
 	float: left;
 	margin-left: 10rem;
 	font-family: sans-serif;
-
 }
 
 .input_form {
@@ -137,7 +204,13 @@ h1 {
 	grid-row-gap: 0px;
 }
 
-.div1 input, .div2 input, .div3 input, .div4 input, .div5 input, .div6 input, .div7 input {
+.div1 input,
+.div2 input,
+.div3 input,
+.div4 input,
+.div5 input,
+.div6 input,
+.div7 input {
 	display: flex;
 	flex-direction: column;
 	width: 18rem;
@@ -147,8 +220,13 @@ h1 {
 	background: #f3f3f3;
 }
 
-
-.div1 label, .div2 label, .div3 label, .div4 label, .div5 label, .div6 label, .div7 label {
+.div1 label,
+.div2 label,
+.div3 label,
+.div4 label,
+.div5 label,
+.div6 label,
+.div7 label {
 	font-size: 18px;
 	font-family: sans-serif;
 	font-weight: bold;
@@ -158,20 +236,32 @@ h1 {
 	bottom: 0.5rem;
 }
 
-.div1 label span, .div2 label span, .div3 label span, .div4 label span, .div5 label span, .div6 label span, .div7 label span {
+.div1 label span,
+.div2 label span,
+.div3 label span,
+.div4 label span,
+.div5 label span,
+.div6 label span,
+.div7 label span {
 	color: #50a8c5;
 }
 
-.div1, .div2 {
+.div1,
+.div2 {
 	margin-top: 1rem;
 }
 
-.div1, .div3, .div4, .div6, .div7 {
+.div1,
+.div3,
+.div4,
+.div6,
+.div7 {
 	margin-left: 3rem;
 	padding: 0px 30px 0 50px;
 }
 
-.div2, .div5 {
+.div2,
+.div5 {
 	margin-left: -23.5rem;
 	padding: 0px 30px 0 50px;
 }
@@ -180,10 +270,10 @@ h1 {
 	margin-top: -5rem;
 }
 
-.div3 input, .div4 input {
+.div3 input,
+.div4 input {
 	width: 40rem;
 }
-
 
 .div5 {
 	grid-area: 4 / 2 / 5 / 3;
@@ -191,7 +281,6 @@ h1 {
 	left: -21.8rem;
 	width: 19rem;
 	height: 4.5rem;
-
 }
 
 .div7 {
@@ -200,11 +289,13 @@ h1 {
 	top: -10.5rem;
 	left: 22rem;
 }
+.div2{
+	margin-left: -23rem;
+}
 
-
-.div3, .div4 {
+.div3,
+.div4 {
 	margin-top: 2rem;
-
 }
 
 .div8 {
@@ -215,22 +306,17 @@ h1 {
 	border: 5px;
 }
 
-
-.span4 input, .span5 input {
-	width: 8.4rem;
+.span4 input{
+	background: #50a8c5;
+	color: #fff;
+	width: 12.4rem;
 	height: 2.8rem;
 	border-radius: 5px;
 	border: 0;
 	font-size: 18px;
 	font-weight: bold;
 	margin-top: -15rem;
-	margin-left: -10em;
-}
-
-.span4 input {
-	border: 0;
-	background: #50a8c5;
-	color: #fff;
+	margin-left: -8.5rem;
 	cursor: pointer;
 }
 
@@ -238,26 +324,7 @@ h1 {
 	background: #fff;
 	border: 1px solid #50a8c5;
 	color: #50a8c5;
-	transition: .8s;
-
+	transition: 0.8s;
 }
-
-.span5 input {
-	margin-left: 2rem;
-	background: #fff;
-	border: 1px solid #50a8c5;
-	color: #50a8c5;
-	cursor: pointer;
-}
-
-.span5 input:hover {
-	border: 0;
-	background: #50a8c5;
-	color: #fff;
-	cursor: pointer;
-	transition: .8s;
-
-}
-
 
 </style>

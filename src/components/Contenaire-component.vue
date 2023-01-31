@@ -1,61 +1,94 @@
 <template>
-	<div class="lst-sport card border border-0  bg-light">
-		<ul class="float-start">
-			<li>
-			<div class="card">
-				<div class="bg-image hover-overlay ripple" data-mdb-ripple-color="light">
-					<img src="@/assets/Images/Sucrerrie.jpg" width="450" class="img-fluid"/>
-					<a href="#!">
-						<div class="mask" style="background-color: rgba(251, 251, 251, 0.15);"></div>
-					</a>
-				</div>
-				<div class="card-body">
-					<h5 class="card-title">Card title</h5>
-					<p class="card-text">Duis aute irure dolor in reprehenderit in
-						voluptate velit esse cillum dolore eu
-						fugiat nulla pariatur. Excepteur sint
-						occaecat cupidatat non proident.</p>
-					<a href="#!" class="btn btn-primary">Button</a>
-				</div>
-			</div>
-			</li>
-			<li>
-				<div class="card">
-					<div class="bg-image hover-overlay ripple" data-mdb-ripple-color="light">
-						<img src="@/assets/Images/Sucrerrie.jpg" width="450" class="img-fluid"/>
-						<a href="#!">
-							<div class="mask" style="background-color: rgba(251, 251, 251, 0.15);"></div>
-						</a>
-					</div>
-					<div class="card-body">
-						<h5 class="card-title">Card title</h5>
-						<p class="card-text">Duis aute irure dolor in reprehenderit in
-							voluptate velit esse cillum dolore eu
-							fugiat nulla pariatur. Excepteur sint
-							occaecat cupidatat non proident.</p>
-						<a href="#!" class="btn btn-primary">Button</a>
-					</div>
-				</div>
-			</li>
-			<li>
-				<div class="card">
-					<div class="bg-image hover-overlay ripple" data-mdb-ripple-color="light">
-						<img src="@/assets/Images/Sucrerrie.jpg" width="450"  class="img-fluid"/>
-						<a href="#!">
-							<div class="mask" style="background-color: rgba(251, 251, 251, 0.15);"></div>
-						</a>
-					</div>
-					<div class="card-body">
-						<h5 class="card-title">Card title</h5>
-						<p class="card-text">Duis aute irure dolor in reprehenderit in
-							voluptate velit esse cillum dolore eu
-							fugiat nulla pariatur. Excepteur sint
-							occaecat cupidatat non proident.</p>
-						<a href="#!" class="btn btn-primary">Button</a>
-					</div>
-				</div>
-			</li>
-<!--			<li>
+  <div class="lst-sport card border border-0 bg-light">
+    <ul class="float-start">
+      <li>
+        <div class="card">
+          <div
+            class="bg-image hover-overlay ripple"
+            data-mdb-ripple-color="light"
+          >
+            <img
+              src="@/assets/Images/Sucrerrie.jpg"
+              width="450"
+              class="img-fluid"
+            />
+            <a href="#!">
+              <div
+                class="mask"
+                style="background-color: rgba(251, 251, 251, 0.15)"
+              ></div>
+            </a>
+          </div>
+          <div class="card-body">
+            <h5 class="card-title">Card title</h5>
+            <p class="card-text">
+              Duis aute irure dolor in reprehenderit in voluptate velit esse
+              cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
+              cupidatat non proident.
+            </p>
+            <a href="#!" class="btn btn-primary">Button</a>
+          </div>
+        </div>
+      </li>
+      <li>
+        <div class="card">
+          <div
+            class="bg-image hover-overlay ripple"
+            data-mdb-ripple-color="light"
+          >
+            <img
+              src="@/assets/Images/Sucrerrie.jpg"
+              width="450"
+              class="img-fluid"
+            />
+            <a href="#!">
+              <div
+                class="mask"
+                style="background-color: rgba(251, 251, 251, 0.15)"
+              ></div>
+            </a>
+          </div>
+          <div class="card-body">
+            <h5 class="card-title">Card title</h5>
+            <p class="card-text">
+              Duis aute irure dolor in reprehenderit in voluptate velit esse
+              cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
+              cupidatat non proident.
+            </p>
+            <a href="#!" class="btn btn-primary">Button</a>
+          </div>
+        </div>
+      </li>
+      <li>
+        <div class="card">
+          <div
+            class="bg-image hover-overlay ripple"
+            data-mdb-ripple-color="light"
+          >
+            <img
+              src="@/assets/Images/Sucrerrie.jpg"
+              width="450"
+              class="img-fluid"
+            />
+            <a href="#!">
+              <div
+                class="mask"
+                style="background-color: rgba(251, 251, 251, 0.15)"
+              ></div>
+            </a>
+          </div>
+          <div class="card-body">
+            <h5 class="card-title">Card title</h5>
+            <p class="card-text">
+              Duis aute irure dolor in reprehenderit in voluptate velit esse
+              cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
+              cupidatat non proident.
+            </p>
+            <a href="#!" class="btn btn-primary">Button</a>
+          </div>
+        </div>
+      </li>
+      <!--			<li>
 				<div class="card">
 					<div class="bg-image hover-overlay ripple" data-mdb-ripple-color="light">
 						<img src="@/assets/Images/Boisson.jpg" width="338" height="231"  class="img-fluid"/>
@@ -73,25 +106,21 @@
 					</div>
 				</div>
 			</li>-->
-		</ul>
-	</div>
-
+    </ul>
+  </div>
 </template>
 
-<script>
-
-</script>
+<script></script>
 
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Oswald&family=Prosto+One&family=Rubik+Bubbles&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Oswald&family=Prosto+One&family=Rubik+Bubbles&display=swap");
 
 .lst-sport {
-	position: relative;
-	top: 1rem;
-	left: -5rem;
-	border: 0px;
+  position: relative;
+  top: 1rem;
+  left: -5rem;
+  border: 0px;
 }
-
 
 /*.lst-sport ul li p {
 	font-size: 20px;
@@ -99,23 +128,21 @@
 	height: 134px;
 }*/
 
-
-
 .lst-sport ul li {
-	margin-left: 60px;
-	list-style: none;
+  margin-left: 60px;
+  list-style: none;
 }
 
 .lst-sport ul li:hover {
-	margin-top: -1rem;
-	transition-delay: 0.2s;
-	transition-duration: 0.6s;
+  margin-top: -1rem;
+  transition-delay: 0.2s;
+  transition-duration: 0.6s;
 }
 
 .lst-sport ul {
-	display: flex;
-	margin-top: 60px;
-	margin-left: 0;
+  display: flex;
+  margin-top: 60px;
+  margin-left: 0;
 }
 /*
 @media (max-width: 1300px) {

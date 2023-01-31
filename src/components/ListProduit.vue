@@ -1,102 +1,92 @@
 <template>
-	<div class="list-row">
-		<div class="list-produit" >
-			<ul>
-				<li>
-					<img :src="produits['photo']" alt="user computeur" width="180" height="120">
-					<h3>{{ produits['name'] }}</h3>
-					<span>
-					<p>{{ produits['quantiter'] }}</p>
-					<p>{{ produits['prix'] }}</p>
-				</span>
-				</li>
-			</ul>
-		</div>
+
+	<div class="lst-sport">
+		<ul class="float-start">
+			<li>
+				<div class="card">
+					<div
+						class="bg-image ripple"
+						data-mdb-ripple-color="light"
+					>
+						<img
+							:src="produits['photo']"
+							alt="user computeur"
+							width="180"
+							class="img-fluid"
+						/>
+						<a href="#!">
+							<div
+								class="mask"
+								style="background-color: rgba(251, 251, 251, 0.15)"
+							></div>
+						</a>
+					</div>
+					<div class="card-body">
+						<h5 class="card-title">{{ produits["name"] }}</h5>
+						<span
+							style="justify-content: space-around;
+								   display: flex;">
+						<p class="mt-2">{{ produits["quantiter"] }}</p>
+						<p class=" mt-2">{{ produits["prix"] }}$</p>
+						</span>
+					</div>
+				</div>
+			</li>
+		</ul>
 	</div>
+
 </template>
 
 <script>
-import axios from "axios"
+import axios from "axios";
+
 export default {
 	name: "ListProduit",
-	data(){
-		return{
+	data() {
+		return {
 			test: [],
 			list: [],
-		}
+		};
 	},
 	props: {
 		produits: Object,
 	},
 	methods: {
 		Affiche() {
-			console.log("Props", this.produits)
-			console.log(this.test)
-		}
+			console.log("Props", this.produits);
+			console.log(this.test);
+		},
 	},
 	/*async created() {
-		this.test = (await axios.get("http://localhost:4000/")).data
-	}*/
-}
+		  this.test = (await axios.get("http://localhost:4000/")).data
+	  }*/
+};
 </script>
 
 <style scoped>
-.list-produit ul li img {
+
+.lst-sport {
 	position: relative;
-	left: -10px;
+	top: 32rem;
+	left: 1rem;
+	border: 0px;
 }
 
-li {
-	list-style: none;
-	position: relative;
-	top: 3rem;
-	left: 5rem;
-}
 
-.list-produit ul li p {
-	font-size: 15px;
-	font-weight: bolder;
-}
-
-.list-produit ul li h3 {
-	font-size: 20px;
-	text-align: center;
-}
-
-.list-produit ul li {
-	width: 10rem;
-	height: 13rem;
+.lst-sport ul li {
 	margin-left: 60px;
 	list-style: none;
-	background: #F5F5F5;
-	padding-left: 18px;
-	padding-right: 15px;
-	padding-top: 10px;
-	box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.04), 8px 8px 16px rgba(0, 0, 0, 0.08);
-	transition: all 0.15s;
-
 }
 
-.list-produit ul li:hover {
-	margin-top: -1rem;
-	/*transition-delay: 0.2s;*/
-	transition-duration: 0.6s;
-}
 
-.list-row {
-	display: grid;
-	grid-template-columns: repeat(4, 1fr);
-	grid-column-gap: 0px;
-	grid-row-gap: 0px;
-	position: relative;
-	left: -5rem;
-	top: 4rem;
-}
-
-span {
-	position: relative;
-	top: -2rem;
+.lst-sport ul {
 	display: flex;
-	justify-content: space-between;
+	margin-top: 60px;
+	margin-left: 0;
 }
+
+.card-text {
+	width: 15rem;
+}
+
 </style>
