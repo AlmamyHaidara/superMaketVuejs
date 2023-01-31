@@ -3,8 +3,9 @@
 </template>
 
 <script lang="ts">
-
 import NavComponent from "@/components/Nav-component.vue"
+import '@fortawesome/fontawesome-free/css/all.css'
+import '@fortawesome/fontawesome-free/js/all.js'
 export default {
 	name: "App",
 	components: { NavComponent },
@@ -13,16 +14,9 @@ export default {
 
 <style>
 
+
 nav a {
-  font-weight: bold;
   color: #2c3e50;
   text-decoration: none;
-  font-size: 20px;
-  font-family: sans-serif;
-  letter-spacing: .1px;
-}
-
-nav a.router-link-exact-active {
-  color: #42b983;
 }
 </style>

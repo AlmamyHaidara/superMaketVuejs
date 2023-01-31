@@ -3,6 +3,8 @@ import HomeView from '../views/HomeView.vue'
 import AboutView from '../views/AboutView.vue'
 import ContactView from '../views/ContactView.vue'
 import ProduitView from '../views/ProduitView.vue'
+import ConnectionView from '../views/ConnectionViews.vue'
+import InscribtionViews from '../views/InscribtionViews.vue'
 
 const routes = [
   {
@@ -26,6 +28,14 @@ const routes = [
     path: '/produit',
     name: 'produit',
     component: ProduitView
+  },{
+    path: '/connection',
+    name: 'connection',
+    component: ConnectionView
+  },{
+    path: '/inscribtion',
+    name: 'inscribtion',
+    component: InscribtionViews
   }
 ]
 

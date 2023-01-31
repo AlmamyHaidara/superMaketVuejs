@@ -12,7 +12,7 @@
 			<img class="preview" id="photo" :src="imageData" width="280" height="220">
 		</form>
 	</div>
-	<list-produit :produits="produit"/>
+	<list-produit :produits="produit" />
 	<h1>{{datainfo}}</h1>
 </template>
 
@@ -40,7 +40,7 @@ export default {
 			this.prix = document.getElementById("prix")
 			this.photo = document.getElementById("photo")
 		},
-		submite() {
+		async submite() {
 			this.dom_collector()
 			this.produit = {
 				'name': this.name_field,
@@ -50,7 +50,13 @@ export default {
 			}
 			if ((this.name_field || this.quantiter_field || this.prix_field) == "") {
 				alert('Veuillez correctement remplire correctement les differente champs')
+
 			} else {
+				await axios.post("http://localhost:3000",{
+					'name': this.name_field,
+					'quantiter': parseFloat(this.quantiter_field),
+					'prix': parseFloat(this.prix_field),
+				})
 				console.log(this.name_field)
 			}
 		},
@@ -69,6 +75,7 @@ export default {
 	},
 	async created() {
 		this.datainfo = (await (axios.get("http://localhost:4000"))).data
+
 		console.log(this.datainfo.length)
 	}
 }
