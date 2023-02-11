@@ -28,9 +28,19 @@
             <span class="ico">
               <i class="fa-solid fa-lock"></i>
             </span>
-            <input type="password" id="form1Example2" class="form-control" />
-            <i class="fa-solid fa-eye eye"></i>
-            <i class="fa-solid fa-eye-slash eye"></i>
+            <input
+              type="password"
+              id="password"
+              class="form-control"
+              @focusout="passwordtest()"
+            />
+            <span @click="passwordVisibility(this)">
+              <i class="fa-solid fa-eye eye"></i>
+            </span>
+
+            <span @click="passwordInvisibility(this)">
+              <i class="fa-solid fa-eye-slash eye"></i>
+            </span>
           </span>
         </div>
 
@@ -59,7 +69,13 @@
         </div>
 
         <!-- Submit button -->
-        <button type="submit" class="btn btn-primary btn-block">Sign in</button>
+        <button
+          type="submit"
+          class="btn btn-primary btn-block"
+          @click.prevent="sende()"
+        >
+          Sign in
+        </button>
       </form>
     </div>
   </div>
@@ -83,6 +99,46 @@ export default {
           (document.querySelector(".login").parentNode.style.display = "none")
         );
         console.log(this.close);
+      }
+    },
+    passwordVisibility() {
+      console.log("ok");
+      let pass = document.querySelector("#password");
+      let eye = document.querySelector(".fa-eye");
+      let eyeslash = document.querySelector(".fa-eye-slash");
+      if (pass.getAttribute("type") == "password") {
+        pass.setAttribute("type", "text");
+        eye.style.display = "none";
+        eyeslash.style.display = "block";
+      }
+    },
+    passwordInvisibility() {
+      let eye = document.querySelector(".fa-eye");
+      let eyeslash = document.querySelector(".fa-eye-slash");
+      let pass = document.querySelector("#password");
+      if (pass.getAttribute("type") == "text") {
+        pass.setAttribute("type", "password");
+        eye.style.display = "block";
+        eyeslash.style.display = "none";
+      }
+    },
+    sende() {
+      console.log("ok");
+    },
+    passwordtest: function () {
+      let pass = document.querySelector("#password").value;
+
+      if (
+        pass.match(/[0-9]/g) &&
+        pass.match(/[A-Z]/g) &&
+        pass.match(/[a-z]/g) &&
+        pass.match(/[^a-zA-Z\d]/g) &&
+        pass.split("").length >= 8
+      ) {
+        console.log(true);
+      } else {
+        alert("Password");
+        return false;
       }
     },
   },
