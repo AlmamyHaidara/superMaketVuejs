@@ -70,7 +70,6 @@
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap.js";
 export default {
-  name: "slider",
   data() {
     return {
       img: require("@/assets/Images/img9.jpg"),

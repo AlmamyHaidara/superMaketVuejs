@@ -1,11 +1,13 @@
-
+<!-- eslint-disable vue/no-parsing-error -->
 <template>
-  <div class="log">
-    <button class="fa-xmarkbtn" @click="closer()">
-      <i class="fa-solid fa-xmark" id="close"></i>
-    </button>
-<!--    <router-link to="/home" class="nav-link">Acceuil</router-link>-->
-    <div class="login">
+  <div class="bloc-modale" v-if="revele">
+    <div class="overlay" v-on:click="toggleModale"></div>
+
+    <!--    <router-link to="/home" class="nav-link">Acceuil</router-link>-->
+    <div class="login modale">
+      <button class="fa-xmarkbtn btn-modale" @click="closer()">
+        <i class="fa-solid fa-xmark" id="close"></i>
+      </button>
       <h2>Se connecter</h2>
       <form>
         <!-- Email input -->
@@ -61,50 +63,68 @@
       </form>
     </div>
   </div>
-	<router-view/>
-
 </template>
 
 <script>
 export default {
-  name: "ConnectionViews",
+  name: "Modale-component",
+  props: ["revele", "toggleModale"],
   data() {
     return {
-        close:true,
-    }
+      close: true,
+    };
   },
-	methods: {
-		closer(){
-			console.log(this.close)
-			this.close = false;
-			if (!this.close){
-				console.log(document.querySelector(".login").parentNode.style.display = "none")
-				console.log(this.close)
-			}
-		}
-	}
-}
+  methods: {
+    closer() {
+      console.log(this.close);
+      this.close = false;
+      if (!this.close) {
+        console.log(
+          (document.querySelector(".login").parentNode.style.display = "none")
+        );
+        console.log(this.close);
+      }
+    },
+  },
+};
 </script>
 
 <style scoped>
-:root {
-  --color1: #50a8c5;
-  --color2: #50a8c5;
-}
-.log {
-  width: 100%;
-  height: 100vh;
-  background: rgba(0, 0, 0, 0.5);
-  backdrop-filter: blur(3px);
-  /*z-index: 2000;*/
-  position: absolute;
+.bloc-modale {
+  position: fixed;
   top: 0;
-  /*opacity: 0.5;*/
+  bottom: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 200;
+}
+
+.overlay {
+  background: rgba(0, 0, 0, 0.5);
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+.modale {
+  position: fixed;
+  top: 2%;
+}
+
+.btn-modale {
+  position: absolute;
+  top: 10px;
+  right: 10px;
 }
 
 .login {
-  width: 50rem;
-  height: 40rem;
+  width: 40rem;
+  height: 30rem;
   margin: 5% 25%;
   background: #ffffff;
   position: center;
@@ -123,8 +143,8 @@ export default {
 }
 
 .form-outline {
-  margin-top: 8rem;
-  margin-left: 13rem;
+  margin-top: 4rem;
+  margin-left: 8rem;
   width: 25rem;
   height: 5rem;
 }
@@ -147,18 +167,19 @@ export default {
 }
 
 .rowdiv {
-  margin-left: 6rem;
+  margin-left: 5rem;
 }
 .btn {
-  margin-left: 15rem;
+  margin-left: 10rem;
   width: 20rem;
   background: rgba(80, 168, 197, 0.98);
+  border: 0;
 }
 
 .eye {
   position: absolute;
-  right: 35rem;
-  top: 24.6rem;
+  right: 8rem;
+  top: 16rem;
   cursor: pointer;
 }
 .fa-eye-slash {
@@ -169,11 +190,10 @@ export default {
 }
 .fa-xmarkbtn {
   position: absolute;
-  top: 5.5rem;
-  left: 74.5%;
+  top: 1rem;
+  left: 89%;
   cursor: pointer;
   background: transparent;
   border: 0;
 }
 </style>
-
