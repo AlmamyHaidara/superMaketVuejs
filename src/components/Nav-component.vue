@@ -51,28 +51,10 @@
       <!-- Collapsible wrapper -->
 
       <!-- Right elements -->
-      <modale :revele="revele" :toggleModale="toggleModale"></modale>
-      <div class="d-flex align-items-center me-5">
-        <!-- Icon -->
-        <a class="text-reset me-3" href="#">
-          <i class="fas fa-shopping-cart"></i>
-        </a>
-        <div class="d-flex align-items-center">
-          <button
-            type="button"
-            class="btn btn-light px-3 me-2"
-            data-mdb-ripple-color="dark"
-            @click="toggleModale()"
-          >
-            Login
-          </button>
-
-          <router-link to="/inscribtion">
-            <button type="button" class="btn btn-primary me-3 inscribe">
-              Inscription
-            </button>
-          </router-link>
-        </div>
+      <a class="text-reset me-3" href="#">
+        <i class="fas fa-shopping-cart"></i>
+      </a>
+      <LoginButton />
         <!-- Avatar -->
         <div class="dropdown">
           <a
@@ -109,7 +91,6 @@
         </div>
       </div>
       <!-- Right elements -->
-    </div>
     <!-- Container wrapper -->
   </nav>
   <!-- Navbar -->
@@ -117,22 +98,9 @@
 </template>
 
 <script>
-import modale from "./Modale.vue";
-
+import LoginButton from '@/components/loginButton.vue'
 export default {
-  components: {
-    modale,
-  },
-  data() {
-    return {
-      revele: false,
-    };
-  },
-  methods: {
-    toggleModale: function () {
-      this.revele = !this.revele;
-    },
-  },
+ components:{LoginButton}
 };
 </script>
 

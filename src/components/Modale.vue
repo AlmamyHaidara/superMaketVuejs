@@ -1,8 +1,9 @@
 <!-- eslint-disable vue/no-parsing-error -->
 <template>
   <div class="bloc-modale" v-if="revele">
+    
     <div class="overlay" v-on:click="toggleModale"></div>
-
+    
     <!--    <router-link to="/home" class="nav-link">Acceuil</router-link>-->
     <div class="login modale">
       <button class="fa-xmarkbtn btn-modale" @click="closer()">
@@ -17,7 +18,7 @@
             <span class="ico">
               <i class="fa-solid fa-user"></i>
             </span>
-            <input type="email" id="form1Example1" class="form-control" />
+            <input type="email" id="email" class="form-control" />
           </span>
         </div>
 
@@ -72,8 +73,8 @@
         <button
           type="submit"
           class="btn btn-primary btn-block"
-          @click.prevent="sende()"
-        >
+          @click.prevent="data_sender()"
+          >
           Sign in
         </button>
       </form>
@@ -82,6 +83,7 @@
 </template>
 
 <script>
+import axios from "axios";
 export default {
   name: "Modale-component",
   props: ["revele", "toggleModale"],
@@ -122,10 +124,37 @@ export default {
         eyeslash.style.display = "none";
       }
     },
-    sende() {
+    data_sender: async () => {
       console.log("ok");
+      let pass = document.querySelector("#password").value;
+      let email = document.querySelector("#email").value;
+      if ((pass || email) === "") {
+        console.log("pass1: " + pass);
+        console.log("pass1: " + email);
+        return false;
+      } else {
+        console.log("pass: " + pass);
+        console.log("pass: " + email);
+        let list_data = {
+          email: email,
+          password: pass,
+        };
+        let data = await axios.post(
+          "http://localhost:3000/connection",
+          list_data
+        );
+        console.log("data ", data.data);
+        if (data.data) {
+          alert("Connection is Successful");
+          
+          // document.querySelector(".login").parentNode.style.display = "none";
+        }else{
+          alert("Votre adresse email ou votre mots de pass est incorrect")
+          
+        }
+      }
     },
-    passwordtest: function () {
+    passwordtest() {
       let pass = document.querySelector("#password").value;
 
       if (
