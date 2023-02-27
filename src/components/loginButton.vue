@@ -38,6 +38,8 @@ export default {
     toggleModale: function () {
       this.revele = !this.revele;
     },
+   
+   
   },
 };
 </script>

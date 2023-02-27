@@ -1,8 +1,10 @@
 <template>
-  <slider class="content" />
-  <Contenaire-Component class="mt-5 float-start table-responsive" />
-  <ContactComponent class="contact mx-auto"></ContactComponent>
-
+  <div>
+	
+    <slider class="content" />
+    <Contenaire-Component class="mt-5 float-start table-responsive" />
+    <ContactComponent></ContactComponent>
+  </div>
 </template>
 <script lang="js">
 import ContenaireComponent from "@/components/Contenaire-component.vue"
@@ -32,5 +34,10 @@ export default {
 .contact {
   margin-top: 40rem;
 }
-
+.text{
+	position: absolute;
+	top: 18rem;
+	left: 5rem;
+	width: 50rem;
+}
 </style>

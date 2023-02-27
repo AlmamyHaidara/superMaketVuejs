@@ -84,6 +84,7 @@
 
 <script>
 import axios from "axios";
+import mitt from "mitt"
 export default {
   name: "Modale-component",
   props: ["revele", "toggleModale"],
@@ -146,6 +147,8 @@ export default {
         console.log("data ", data.data);
         if (data.data) {
           alert("Connection is Successful");
+          this.testing()
+          console.log('testing',this.testing());
           
           // document.querySelector(".login").parentNode.style.display = "none";
         }else{
@@ -153,6 +156,9 @@ export default {
           
         }
       }
+    },
+    testing: function(){
+      mitt().emit("testing","Cool")
     },
     passwordtest() {
       let pass = document.querySelector("#password").value;

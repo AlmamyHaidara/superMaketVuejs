@@ -6,6 +6,7 @@ import ProduitView from "../views/ProduitView.vue";
 // import ConnectionView from "../views/ConnectionViews.vue";
 import InscribtionViews from "../views/InscribtionViews.vue";
 
+
 const routes = [
   {
     path: "/",

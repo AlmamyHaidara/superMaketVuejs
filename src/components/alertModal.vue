@@ -3,6 +3,7 @@
     <i class="fa-solid fa-xmark" id="close" @click="closer()"></i>
     <p>Connection is successful</p>
     {{ timeCLose() }}
+    
   </div>
 </template>
 <script>
@@ -42,13 +43,13 @@ export default {
   z-index: 100;
 }
 p {
-  color: white;
+  color: #f1f1f1;
   font-size: 18px;
 }
 #close {
   position: absolute;
   top: 4px;
   right: 8px;
-  color: aliceblue;
+  color: #f1f1f1;
 }
 </style>

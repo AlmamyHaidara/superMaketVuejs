@@ -1,60 +1,61 @@
 <template>
-  <!-- Navbar -->
-  <nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <!-- Container wrapper -->
-    <div class="container-fluid">
-      <!-- Toggle button -->
-      <button
-        class="navbar-toggler"
-        type="button"
-        data-mdb-toggle="collapse"
-        data-mdb-target="#navbarSupportedContent"
-        aria-controls="navbarSupportedContent"
-        aria-expanded="false"
-        aria-label="Toggle navigation"
-      >
-        <i class="fas fa-bars"></i>
-      </button>
+  <div>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <!-- Container wrapper -->
+      <div class="container-fluid">
+        <!-- Toggle button -->
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-mdb-toggle="collapse"
+          data-mdb-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <i class="fas fa-bars"></i>
+        </button>
 
-      <!-- Collapsible wrapper -->
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <!-- Navbar brand -->
-        <a class="navbar-brand mt-2 mt-lg-0" href="#">
-          <img
-            src="../assets/Images/logo1.png"
-            height="50"
-            alt="MDB Logo"
-            loading="lazy"
-          />
+        <!-- Collapsible wrapper -->
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <!-- Navbar brand -->
+          <a class="navbar-brand mt-2 mt-lg-0" href="#">
+            <img
+              src="../assets/Images/logo1.png"
+              height="50"
+              alt="MDB Logo"
+              loading="lazy"
+            />
+          </a>
+          <!-- Left links -->
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <!--						<a class="nav-link" href="#">Dashboard</a>-->
+              <router-link to="/home" class="nav-link">Acceuil</router-link>
+            </li>
+            <li class="nav-item">
+              <!--						<a class="nav-link" href="#">Team</a>-->
+              <router-link to="/contact" class="nav-link">Contact</router-link>
+            </li>
+            <li class="nav-item">
+              <!--						<a class="nav-link" href="#">Projects</a>-->
+              <router-link to="/produit" class="nav-link">Produit</router-link>
+            </li>
+            <li class="nav-item">
+              <!--						<a class="nav-link" href="#">Projects</a>-->
+              <router-link to="/about" class="nav-link">Autre</router-link>
+            </li>
+          </ul>
+          <!-- Left links -->
+        </div>
+        <!-- Collapsible wrapper -->
+
+        <!-- Right elements -->
+        <a class="text-reset me-3" href="#">
+          <i class="fas fa-shopping-cart"></i>
         </a>
-        <!-- Left links -->
-        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-          <li class="nav-item">
-            <!--						<a class="nav-link" href="#">Dashboard</a>-->
-            <router-link to="/home" class="nav-link">Acceuil</router-link>
-          </li>
-          <li class="nav-item">
-            <!--						<a class="nav-link" href="#">Team</a>-->
-            <router-link to="/contact" class="nav-link">Contact</router-link>
-          </li>
-          <li class="nav-item">
-            <!--						<a class="nav-link" href="#">Projects</a>-->
-            <router-link to="/produit" class="nav-link">Produit</router-link>
-          </li>
-          <li class="nav-item">
-            <!--						<a class="nav-link" href="#">Projects</a>-->
-            <router-link to="/about" class="nav-link">Autre</router-link>
-          </li>
-        </ul>
-        <!-- Left links -->
-      </div>
-      <!-- Collapsible wrapper -->
-
-      <!-- Right elements -->
-      <a class="text-reset me-3" href="#">
-        <i class="fas fa-shopping-cart"></i>
-      </a>
-      <LoginButton />
+        <LoginButton></LoginButton>
         <!-- Avatar -->
         <div class="dropdown">
           <a
@@ -73,6 +74,7 @@
               loading="lazy"
             />
           </a>
+
           <!-- <ul
 										class="dropdown-menu dropdown-menu-end "
 										aria-labelledby="navbarDropdownMenuAvatar"
@@ -91,16 +93,17 @@
         </div>
       </div>
       <!-- Right elements -->
-    <!-- Container wrapper -->
-  </nav>
-  <!-- Navbar -->
-  <router-view />
+      <!-- Container wrapper -->
+    </nav>
+    <!-- Navbar -->
+    <router-view />
+  </div>
 </template>
 
 <script>
-import LoginButton from '@/components/loginButton.vue'
+import LoginButton from "@/components/loginButton.vue";
 export default {
- components:{LoginButton}
+  components: { LoginButton },
 };
 </script>
 
@@ -144,6 +147,11 @@ nav ul {
   z-index: 100;
   position: absolute;
   top: 0;
+}
+.nav-link{
+  font-weight: 400;
+  font-size: 20px;
+  letter-spacing: 1px;
 }
 @media (max-width: 1157px) {
   .span2 li {

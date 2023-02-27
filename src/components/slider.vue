@@ -43,6 +43,12 @@
           class="d-block mx-auto w-75 c-img"
           alt="p"
         />
+      </div><div class="carousel-item">
+        <img
+          :src="require('@/assets/Images/slide1.jpg')"
+          class="d-block mx-auto w-100 c-img"
+          alt="p"
+        />
       </div>
     </div>
     <button
@@ -70,6 +76,7 @@
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap.js";
 export default {
+  name: 'slider-component',
   data() {
     return {
       img: require("@/assets/Images/img9.jpg"),
@@ -79,6 +86,7 @@ export default {
         require("@/assets/Images/img9.jpg"),
         require("@/assets/Images/test.png"),
         require("@/assets/Images/img11.png"),
+        require("@/assets/Images/slide1.jpg"),
       ],
     };
   },

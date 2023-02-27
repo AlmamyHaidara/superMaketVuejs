@@ -57,7 +57,8 @@
         </div>
 
         <!-- Submit button -->
-        <button type="submit" class="btn btn-primary btn-block">Sign in</button>
+        <button >Click moi</button>
+        <button type="submit" class="btn btn-primary btn-block"  >Sign in</button>
       </form>
     </div>
   </div>
@@ -81,8 +82,9 @@ export default {
 				console.log(document.querySelector(".login").parentNode.style.display = "none")
 				console.log(this.close)
 			}
-		}
+		},Afficher(){console.log('Bonjour');}
 	}
+  
 }
 </script>
 

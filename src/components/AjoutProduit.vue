@@ -4,15 +4,13 @@
       <div class="field">
         <div class="col-md-4">
           <div class="form-outline">
-            <label for="validationDefault01" class="form-label"
-              >First name</label
-            >
+            <label for="validationDefault01" class="form-label">Produit</label>
             <input
               type="text"
               name="produit"
               class="form-control"
               id="validationDefault01 produit"
-              v-model="name_field"
+              v-model="produit"
               required
             />
           </div>
@@ -21,14 +19,28 @@
         <div class="col-md-4">
           <div class="form-outline">
             <label for="validationDefault01" class="form-label"
-              >First name</label
+              >Quantiter</label
             >
             <input
               type="number"
               name="quantiter"
               class="form-control"
               id="validationDefault01 quantiter"
-              v-model="quantiter_field"
+              v-model="quantiter"
+              required
+            />
+          </div>
+        </div>
+
+        <div class="col-md-4">
+          <div class="form-outline">
+            <label for="validationDefault01" class="form-label">Prix</label>
+            <input
+              type="text"
+              name="prix"
+              class="form-control"
+              id="validationDefault01 prix"
+              v-model="prix"
               required
             />
           </div>
@@ -37,16 +49,20 @@
         <div class="col-md-4">
           <div class="form-outline">
             <label for="validationDefault01" class="form-label"
-              >First name</label
+              >Catégorie</label
             >
-            <input
-              type="text"
-              name="prix"
-              class="form-control"
-              id="validationDefault01 prix"
-              v-model="prix_field"
-              required
-            />
+            <select
+              class="form-select categorie"
+              aria-label="Default select example"
+              id="prix"
+              name="categorie"
+              v-model="categorie"
+            >
+              <option value="legume">Chaussure</option>
+              <option value="letue">Vaitement</option>
+              <option value="viand">Caascette</option>
+              <option value="poisson">Lunette</option>
+            </select>
           </div>
         </div>
       </div>
@@ -76,8 +92,7 @@
       />
     </form>
   </div>
-  <list-produit :produits="produit" />
-  <h1>{{ datainfo }}</h1>
+  <list-produit :list_produit="list_produit" />
 </template>
 
 <script>
@@ -86,34 +101,34 @@ import ListProduit from "@/components/ListProduit.vue";
 
 export default {
   components: { ListProduit },
-  component: ListProduit,
   name: "AjoutProduit",
   data: () => {
     return {
-      name_field: "",
-      quantiter_field: "",
-      prix_field: "",
-      produit: {},
+      quantiter: "",
+      prix: "",
+      produit: "",
+      produits: {},
+      list_produit: [],
+      categorie: "",
       datainfo: [],
+      photo: "",
       imageData: require("@/assets/Images/defauletImage.png"),
     };
   },
   methods: {
-    dom_collector() {
-      this.name = document.getElementById("produit");
-      this.quantiter = document.getElementById("quantiter");
-      this.prix = document.getElementById("prix");
-      this.photo = document.getElementById("photo");
-    },
+    // dom_collector() {
+    //   this.name = document.getElementById("produit");
+    //   this.quantiter = document.getElementById("quantiter");
+    //   this.prix = document.getElementById("prix");
+    // },
     async submite() {
-      this.dom_collector();
-      this.produit = {
-        name: this.name_field,
-        quantiter: parseFloat(this.quantiter_field),
-        prix: parseFloat(this.prix_field),
-        photo: this.photo.getAttribute("src"),
-      };
-      if ((this.name_field || this.quantiter_field || this.prix_field) == "") {
+      // this.dom_collector();
+      this.photo = document.getElementById("photo");
+      
+      console.log("image: " , this.imageData)
+
+      if (
+        (this.produit || this.quantiter || this.prix || this.categorie) == "") {
         alert(
           "Veuillez correctement remplire correctement les differente champs"
         );
@@ -123,12 +138,21 @@ export default {
 					quantiter: parseFloat(this.quantiter_field),
 					prix: parseFloat(this.prix_field),
 				});*/
-        console.log(this.name_field);
+        this.produits = {
+          produit: this.produit,
+          quantiter: parseFloat(this.quantiter),
+          prix: parseFloat(this.prix),
+          categorie: parseFloat(this.categorie),
+          photo: this.photo.getAttribute("src"),
+        };
+        this.list_produit.push(this.produits);
+        localStorage.getItem(this.list_produit);
+        console.log(this.list_produit);
+        console.log(this.produit, this.quantiter, this.prix, this.categorie);
       }
     },
     previewImage: function (event) {
-      // Reference to the DOM input element
-      var input = event.target;
+      let input = event.target;
       // Ensure that you have a file before attempting to read it
       if (input.files && input.files[0]) {
         var reader = new FileReader();
@@ -139,11 +163,6 @@ export default {
       }
     },
   },
-  /*async created() {
-		this.datainfo = (await axios.get("http://localhost:4000")).data;
-
-		console.log(this.datainfo.length);
-	},*/
 };
 </script>
 
@@ -162,17 +181,14 @@ export default {
 }
 
 .field {
-  margin-top: -7rem;
+  margin-top: -4rem;
   margin-left: 8rem;
-}
-
-input {
 }
 
 #btn {
   position: relative;
-  top: 3.5rem;
-  left: 10rem;
+  top: 3rem;
+  left: 9rem;
   width: 15rem;
 }
 
